@@ -41,7 +41,7 @@ public class BasicItemController {
   }
 
   /*@PostMapping("/add")
-  public String save(@RequestParam String itemName,@RequestParam Integer price, @RequestParam Integer quantity,Model model) {
+  public String saveV1(@RequestParam String itemName,@RequestParam Integer price, @RequestParam Integer quantity,Model model) {
     Item item = new Item();
     item.setItemName(itemName);
     item.setPrice(price);
@@ -54,12 +54,28 @@ public class BasicItemController {
     return "basic/item";
   }*/
 
-  @PostMapping("/add")
-  public String save(@ModelAttribute("item") Item item) {
+  /*@PostMapping("/add")
+  public String saveV2(@ModelAttribute("item") Item item) {
 
     itemRepository.save(item);
 //    model.addAttribute("item",item); // 자동 추가, 생략 가능
 
+    return "basic/item";
+  }*/
+
+/*  @PostMapping("/add")
+  public String saveV3(@ModelAttribute Item item) {
+
+    itemRepository.save(item);
+//    model.addAttribute("item",item); // 자동 추가, 생략 가능
+
+    return "basic/item";
+  }*/
+
+  @PostMapping("/add")
+  public String saveV4(Item item) {
+    itemRepository.save(item);
+//    model.addAttribute("item",item); // 자동 추가, 생략 가능
     return "basic/item";
   }
 
